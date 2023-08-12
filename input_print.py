@@ -35,7 +35,8 @@ class Person:
         print(f"{self.f_name} walks with their pet, {self.pet.name}!")
         return self
 
-f_name = input("\nHi, I am bot! What is your first name: ")
+print("\n========================================")
+f_name = input("Hi, I am bot! What is your first name: ")
 l_name = input("What is your last name: ")
 pet_name = input("What is your pet name: ") # assuming this person has a pet / with a pet
 pet_tricks = input("What is your pet's favorite trick: ")
@@ -43,21 +44,26 @@ pet_food = input("What is your favorite food: ")
 
 person_one = Person(f_name,l_name,pet_name,pet_tricks,pet_food)
 person_one.go_walk()
+print("========================================")
 
-update_data = input("\nWould you like to update the data: ").lower()
+update_data = input("\n> Would you like to update the data: ").lower()
 while(update_data == "y" or len(update_data) > 1):
     if(len(update_data)>1 ):
         print("\n> Invalid Input [ y/Y for Yes | n/N for No ]\n")
 
-    f_name = input("\nHi, I am bot! What is your first name: ")
-    l_name = input("What is your last name: ")
-    pet_name = input("What is your pet name: ") # assuming this person has a pet / with a pet
-    pet_tricks = input("What is your pet's favorite trick: ")
-    pet_food = input("What is your favorite food: ")
+    if(update_data == "y"):
+        print("\n========================================")
+        f_name = input("Hi again, I am bot! What is your first name: ")
+        l_name = input("What is your last name: ")
+        pet_name = input("What is your pet name: ") # assuming this person has a pet / with a pet
+        pet_tricks = input("What is your pet's favorite trick: ")
+        pet_food = input("What is your favorite food: ")
+        person_one.go_walk()
+        print("========================================")
 
-    person_one = Person(f_name,l_name,pet_name,pet_tricks,pet_food)
-    person_one.go_walk()
+        person_one = Person(f_name,l_name,pet_name,pet_tricks,pet_food)
+        person_one.go_walk()
 
-    update_data = input("would you like to update the data: ").lower()
+    update_data = input("\n> Would you like to update the data: ").lower()
     
 print("\nThank you for your input! :)")
